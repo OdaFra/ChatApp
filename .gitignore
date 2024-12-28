@@ -16,6 +16,7 @@
 **/lib/generated_plugin_registrant.dart
 **/.metadata
 **/pubspec.lock
+**/package-lock.json
 
 # For library packages, don’t commit the pubspec.lock file.
 # Regenerating the pubspec.lock file lets you test your package against the latest compatible versions of its dependencies.
