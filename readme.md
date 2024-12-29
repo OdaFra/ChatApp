@@ -271,5 +271,3 @@ No dudes en comunicarte conmigo si tienes alguna pregunta, comentario u oportuni
 - **Correo electrónico**: [osramirezf@gmail.com]
 - **LinkedIn**: [[Perfil de LinkedIn](https://www.linkedin.com/in/oscar-ramirez-franco/)]
 - **GitHub**: [[Perfil de GitHub](https://github.com/OdaFra)]
-
-Con esta configuración, puedes utilizar Docker para gestionar MongoDB de forma sencilla y eficiente.
