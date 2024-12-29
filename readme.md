@@ -2,6 +2,29 @@
 
 ChatApp es una aplicación Full Stack desarrollada con Flutter en el frontend y Node.js en el backend, utilizando MongoDB como base de datos. La aplicación permite a los usuarios registrarse, iniciar sesión y enviar mensajes en tiempo real entre usuarios. Es una solución ideal para construir un sistema de mensajería moderno y escalable.
 
+## Imagenes del funcionamiento
+
+### Registro e Inicio de Sesión
+
+<p align="center">
+  <img src="./images/register.png" alt="Vista para registro" width="25%">
+  <img src="./images/login.png" alt="Vista para inicio de sesión" width="25%">
+</p>
+
+### Usuarios online
+
+<p align="center">
+  <img src="./images/users_online.png" alt="Usuarios Online" width="45%">
+  <img src="./images/messages_users.png" alt="Mensajes de usuarios" width="45%">
+</p>
+
+### Registro en MongoDB
+
+<p align="center">
+  <img src="./images/users_mongodb.png" alt="Usuarios en db" width="45%">
+  <img src="./images/messages_mongodb.png" alt="Mensajes en db" width="45%">
+</p>
+
 ## Funcionalidades
 
 ### Frontend (Flutter)
@@ -72,11 +95,11 @@ cd back_node_express_mongodb
 
 Si no tienes NVM instalado, sigue las [instrucciones de instalación de NVM](https://github.com/nvm-sh/nvm#installing-and-updating).
 
-Instala la versión de Node.js utilizada en el proyecto:
+Instala la versión de Node.js utilizada en el proyecto (entre 14.x, 16.x y hasta 18.x):
 
 ```bash
-nvm install 14
-nvm use 14
+nvm install 18
+nvm use 18
 ```
 
 #### 2.2 Instalar Dependencias
@@ -128,8 +151,8 @@ dart pub global activate fvm
 Instala la versión de Flutter especificada en el proyecto:
 
 ```bash
-fvm install 2.7.0
-fvm use 2.7.0
+fvm install 3.0.0
+fvm use 3.0.0
 ```
 
 #### 3.2 Obtener las Dependencias de Flutter
@@ -160,6 +183,7 @@ El directorio del frontend incluye los siguientes archivos importantes:
 - `lib/widgets/`: Componentes reutilizables de la interfaz de usuario.
 - `lib/routers/`: Gestión de rutas.
 - `lib/helpers/`: Componentes reutilizables de la interfaz de usuario.
+- `lib/global/environment`: Ip agregada de forma estática del host anfitrión (Corresponde a la ip del servicio backend ejecutado).
 
 ### Backend (Node.js)
 
