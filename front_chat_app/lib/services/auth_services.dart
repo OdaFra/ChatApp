@@ -1,15 +1,15 @@
 import 'dart:convert';
 
-import 'package:chatapp/models/loginResponse.dart';
-import 'package:chatapp/models/usuarios.dart';
 import 'package:flutter/foundation.dart';
+import 'package:front_chat_app/models/loginResponse.dart';
+import 'package:front_chat_app/models/usuarios.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import '../global/environment.dart';
 
 class AuthService with ChangeNotifier {
-  Usuario usuario;
+  late Usuario usuario;
   bool _autenticando = false;
 
   final _storage = const FlutterSecureStorage();
@@ -24,7 +24,7 @@ class AuthService with ChangeNotifier {
   static Future<String> getToken() async {
     const storage = FlutterSecureStorage();
     final token = await storage.read(key: 'token');
-    return token;
+    return token!;
   }
 
   static Future<void> deleteToken() async {

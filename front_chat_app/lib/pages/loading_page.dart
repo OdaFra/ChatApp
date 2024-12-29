@@ -1,13 +1,13 @@
-import 'package:chatapp/pages/login_page.dart';
-import 'package:chatapp/pages/usuario_page.dart';
 import 'package:flutter/material.dart';
+import 'package:front_chat_app/pages/login_page.dart';
+import 'package:front_chat_app/pages/usuario_page.dart';
 import 'package:provider/provider.dart';
 
 import '../services/auth_services.dart';
 import '../services/socket_services.dart';
 
 class LoadingPage extends StatelessWidget {
-  const LoadingPage({Key key}) : super(key: key);
+  const LoadingPage({super.key});
 
   @override
   Widget build(BuildContext context) {

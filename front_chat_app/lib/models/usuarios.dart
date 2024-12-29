@@ -10,10 +10,10 @@ String usuarioToJson(Usuario data) => json.encode(data.toJson());
 
 class Usuario {
   Usuario({
-    this.email,
-    this.nombre,
-    this.online,
-    this.uid,
+    required this.email,
+    required this.nombre,
+    required this.online,
+    required this.uid,
   });
 
   String nombre;

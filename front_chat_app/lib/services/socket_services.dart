@@ -1,6 +1,6 @@
-import 'package:chatapp/global/environment.dart';
-import 'package:chatapp/services/auth_services.dart';
 import 'package:flutter/material.dart';
+import 'package:front_chat_app/global/environment.dart';
+import 'package:front_chat_app/services/auth_services.dart';
 
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
@@ -12,7 +12,7 @@ enum ServerStatus {
 
 class SocketService with ChangeNotifier {
   ServerStatus _serverStatus = ServerStatus.Connecting;
-  IO.Socket _socket;
+  late IO.Socket _socket;
 
   ServerStatus get serverStatus => _serverStatus;
 

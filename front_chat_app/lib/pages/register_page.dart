@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:front_chat_app/helpers/mostrarAlerta.dart';
+import 'package:front_chat_app/services/auth_services.dart';
+import 'package:front_chat_app/widgets/Btn_azul.dart';
+import 'package:front_chat_app/widgets/Custom_input.dart';
 
-import 'package:chatapp/services/auth_services.dart';
-import 'package:chatapp/helpers/mostrarAlerta.dart';
-import 'package:chatapp/widgets/Btn_azul.dart';
-import 'package:chatapp/widgets/Custom_input.dart';
 import 'package:provider/provider.dart';
 
 import '../services/socket_services.dart';
@@ -11,7 +11,7 @@ import '../widgets/Label.dart';
 import '../widgets/Logo.dart';
 
 class RegisterPage extends StatelessWidget {
-  const RegisterPage({Key key}) : super(key: key);
+  const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {

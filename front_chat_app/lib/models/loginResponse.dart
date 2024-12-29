@@ -4,7 +4,7 @@
 
 import 'dart:convert';
 
-import 'package:chatapp/models/usuarios.dart';
+import 'package:front_chat_app/models/usuarios.dart';
 
 LoginResponse loginResponseFromJson(String str) =>
     LoginResponse.fromJson(json.decode(str));
@@ -13,9 +13,9 @@ String loginResponseToJson(LoginResponse data) => json.encode(data.toJson());
 
 class LoginResponse {
   LoginResponse({
-    this.ok,
-    this.usuario,
-    this.token,
+    required this.ok,
+    required this.usuario,
+    required this.token,
   });
 
   bool ok;

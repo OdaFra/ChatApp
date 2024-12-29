@@ -1,38 +1,38 @@
-name: chatapp
+name: front_chat_app
 description: A new Flutter project.
 
-
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
-
+  sdk: ">=2.17.0 <3.0.0"
 
 dependencies:
-  cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+
+
+
+  cupertino_icons: ^1.0.2
   flutter_secure_storage: ^4.2.1
   http: ^0.13.3
   provider: ^6.0.3
   pull_to_refresh: ^2.0.0
-  #socket_io_client: ^2.0.0-beta.4-nullsafety.0
-  # pull_to_refresh: ^1.6.1
-  # provider: ^4.3.1
-  # http: ^0.12.2
-  # flutter_secure_storage: ^3.3.3
-  socket_io_client: ^0.9.11
-
+  socket_io_client: ^1.0.0
 
 dev_dependencies:
-  flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
 
+
+  flutter_lints: ^2.0.0
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
+
 # The following section is specific to Flutter packages.
 flutter:
 
@@ -45,10 +45,13 @@ flutter:
   assets:
     - assets/
   #   - images/a_dot_ham.jpeg
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
+
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
+
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a

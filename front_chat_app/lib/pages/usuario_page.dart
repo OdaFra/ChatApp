@@ -1,28 +1,39 @@
-import 'package:chatapp/services/socket_services.dart';
 import 'package:flutter/material.dart';
-
-import 'package:chatapp/models/usuarios.dart';
-import 'package:chatapp/services/auth_services.dart';
+import 'package:front_chat_app/models/usuarios.dart';
+import 'package:front_chat_app/services/auth_services.dart';
+import 'package:front_chat_app/services/chat_service.dart';
+import 'package:front_chat_app/services/socket_services.dart';
+import 'package:front_chat_app/services/usuarios_services.dart';
 import 'package:provider/provider.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class UsuariosPage extends StatefulWidget {
-  const UsuariosPage({Key key}) : super(key: key);
+  const UsuariosPage({super.key});
 
   @override
   State<UsuariosPage> createState() => _UsuariosPageState();
 }
 
 class _UsuariosPageState extends State<UsuariosPage> {
+  final usuariosService = UsuariosService();
   final RefreshController _refreshController =
       RefreshController(initialRefresh: false);
-  final usuarios = [
-    Usuario(uid: '1', nombre: 'Maria', email: 'test1@test.com', online: true),
-    Usuario(
-        uid: '2', nombre: 'Fernando', email: 'test2@test.com', online: true),
-    Usuario(uid: '3', nombre: 'Oscar', email: 'test3@test.com', online: true),
-    Usuario(uid: '4', nombre: 'Ana', email: 'test3@test.com', online: true)
-  ];
+
+  List<Usuario> usuariosdbMongo = [];
+
+  // final usuarios = [
+  //   Usuario(uid: '1', nombre: 'Maria', email: 'test1@test.com', online: true),
+  //   Usuario(
+  //       uid: '2', nombre: 'Fernando', email: 'test2@test.com', online: true),
+  //   Usuario(uid: '3', nombre: 'Oscar', email: 'test3@test.com', online: true),
+  //   Usuario(uid: '4', nombre: 'Ana', email: 'test3@test.com', online: true)
+  // ];
+
+  @override
+  void initState() {
+    _cargarUsuarios();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,10 +50,7 @@ class _UsuariosPageState extends State<UsuariosPage> {
         elevation: 1,
         backgroundColor: Colors.white,
         leading: IconButton(
-            icon: const Icon(
-              Icons.exit_to_app,
-              color: Colors.black54,
-            ),
+            icon: const Icon(Icons.exit_to_app, color: Colors.black54),
             onPressed: () {
               socketService.disconnect();
               Navigator.pushReplacementNamed(context, 'login');
@@ -63,7 +71,7 @@ class _UsuariosPageState extends State<UsuariosPage> {
           onRefresh: _cargarUsuarios,
           header: WaterDropHeader(
               complete: Icon(Icons.check, color: Colors.blue[400]),
-              waterDropColor: Colors.blue[400]),
+              waterDropColor: Colors.blue[400] ?? Colors.blue),
           enablePullDown: true,
           child: _listViewUsuarios()),
     );
@@ -72,9 +80,9 @@ class _UsuariosPageState extends State<UsuariosPage> {
   ListView _listViewUsuarios() {
     return ListView.separated(
       physics: const BouncingScrollPhysics(),
-      itemBuilder: (_, i) => _UsuariosListTile(usuarios[i]),
+      itemBuilder: (_, i) => _UsuariosListTile(usuariosdbMongo[i]),
       separatorBuilder: (_, i) => const Divider(),
-      itemCount: usuarios.length,
+      itemCount: usuariosdbMongo.length,
     );
   }
 
@@ -93,10 +101,19 @@ class _UsuariosPageState extends State<UsuariosPage> {
               color: usuario.online ? Colors.green[300] : Colors.red,
               borderRadius: BorderRadius.circular(100)),
         ),
+        onTap: () {
+          // print(usuario.nombre);
+          final chatService = Provider.of<ChatService>(context, listen: false);
+          chatService.usuarioPara = usuario;
+          Navigator.pushNamed(context, 'chat');
+        },
       );
 
   _cargarUsuarios() async {
-    await Future.delayed(const Duration(milliseconds: 1000));
+    usuariosdbMongo = await usuariosService.getUsuarios();
+    setState(() {});
+    //await Future.delayed(const Duration(milliseconds: 1000));
+
     _refreshController.refreshCompleted();
   }
 }
