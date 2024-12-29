@@ -9,6 +9,7 @@ require('./database/config').dbConnection();
 const app = express();
 
 //Lectura y parseo del body;
+
 app.use(express.json());
 
 
@@ -29,6 +30,7 @@ app.use( express.static( publicPath ) );
 
 app.use('/api/login', require('./routes/auth'));
 app.use('/api/usuarios', require('./routes/usuarios'));
+app.use('/api/mensajes', require('./routes/mensajes'));
 
 
 
