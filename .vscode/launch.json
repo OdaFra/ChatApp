@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "front_chat_app",
+      "cwd": "${workspaceFolder}/front_chat_app",
+      "request": "launch",
+      "type": "dart"
+    },
+    {
+      "name": "front_chat_app (profile mode)",
+      "cwd": "${workspaceFolder}/front_chat_app",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile"
+    },
+    {
+      "name": "front_chat_app (release mode)",
+      "cwd": "${workspaceFolder}/front_chat_app",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release"
+    }
+  ]
+}
