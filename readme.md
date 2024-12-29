@@ -197,6 +197,59 @@ El directorio del backend incluye los siguientes archivos importantes:
 - `middlewares/`: Validaciones y autenticaciones de rutas.
 - `sockets/`: Lógica de manejo de eventos de Socket.IO.
 
+## Utilización con Docker
+
+Para ejecutar los servicios requeridos (como MongoDB) con Docker, sigue estos pasos:
+
+### 1. Asegúrate de tener Docker instalado
+
+Descarga e instala Docker desde su [sitio oficial](https://www.docker.com/get-started) si aún no lo tienes.
+
+### 2. Configuración del archivo `docker-compose.yml`
+
+Utilizar el archivo `docker-compose.yml` que se encuentra en el directorio docker
+
+### 3. Construir y ejecutar los contenedores
+
+Ejecuta el siguiente comando en el directorio donde se encuentra el archivo `docker-compose.yml`:
+
+```bash
+docker-compose up -d
+```
+
+Este comando hará lo siguiente:
+
+- Descargar la imagen más reciente de MongoDB.
+- Crear un contenedor para MongoDB.
+- Exponer el puerto `27017` para que el backend pueda conectarse.
+- Crear una red personalizada para los servicios del proyecto.
+
+### 4. Verifica que el contenedor esté en ejecución
+
+Utiliza este comando para verificar el estado de los contenedores:
+
+```bash
+docker ps
+```
+
+Deberías ver un contenedor llamado `mongodb` en ejecución.
+
+### 5. Conexión desde el Backend
+
+Asegúrate de que la variable `DB_CNN` en el archivo `.env` del backend esté configurada correctamente para conectarse al contenedor de MongoDB:
+
+```env
+DB_CNN=mongodb://admin:adminpassword@localhost:27017/chatapp
+```
+
+### 6. Detener los contenedores
+
+Cuando termines de trabajar, puedes detener y eliminar los contenedores con:
+
+```bash
+docker-compose down
+```
+
 ## Uso
 
 1. **Inicia el servidor**: Asegúrate de que el backend esté en ejecución antes de iniciar la aplicación Flutter.
@@ -218,3 +271,5 @@ No dudes en comunicarte conmigo si tienes alguna pregunta, comentario u oportuni
 - **Correo electrónico**: [osramirezf@gmail.com]
 - **LinkedIn**: [[Perfil de LinkedIn](https://www.linkedin.com/in/oscar-ramirez-franco/)]
 - **GitHub**: [[Perfil de GitHub](https://github.com/OdaFra)]
+
+Con esta configuración, puedes utilizar Docker para gestionar MongoDB de forma sencilla y eficiente.
